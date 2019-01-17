@@ -5,8 +5,10 @@ const passport = require('passport');
 const keys = require('./config/keys');
 const bodyParser = require('body-parser');
 require('./models/user');
+require('./models/survey');
 require('./services/passport');
 
+mongoose.Promise = global.Promise;
 // connect to the database using the URL stored in the config file
 mongoose.connect(keys.mongoURI);
 
@@ -28,9 +30,9 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-
 require('./routes/authRoutes')(app);
 require('./routes/billingRoutes')(app);
+require('./routes/surveyRoutes')(app);
 
 if (process.env.NODE_ENV === 'production') {
 	// Express will serve up production assests
