@@ -13,13 +13,13 @@ class SurveyList extends Component {
         <div className="card grey lighten-3" key={survey._id}>
           <div className="card-content">
             <span className="card-title">{survey.title}</span>
-            <p className="right">
+            <p>
               Sent On: {new Date(survey.dateSent).toLocaleDateString()}
             </p>
           </div>
-          <div className="card-action">
-            <a>Yes: {survey.yes}</a>
-            <a>No: {survey.no}</a>
+          <div className="card-action blue-grey darken-2">
+            <a style={{color: "#fff" }}>Yes: {survey.yes}</a>
+            <a style={{color: "#fff" }}>No: {survey.no}</a>
           </div>
         </div>
       );
