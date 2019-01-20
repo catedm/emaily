@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Payments from './Payments';
+import '../App.css';
 
 class Header extends Component {
   renderContent() {
@@ -25,12 +26,14 @@ class Header extends Component {
 
   render() {
     return (
-      <nav>
+      <nav className="nav">
         <div className="nav-wrapper">
           <Link
             to={this.props.auth ? '/surveys' : '/'}
-            className="left brand-logo">
-            Emaily
+            className="left brand-logo"
+            style={{ marginLeft: '10px' }}>
+            <i className="large material-icons right">poll</i>
+            Survey Wizard
           </Link>
           <ul id="nav-mobile" className="right">
             {this.renderContent()}

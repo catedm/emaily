@@ -12,9 +12,9 @@ import formFields from './formFields';
 class SurveyForm extends Component {
 
   renderFields() {
-    return _.map(formFields, ({ label, name }) => {
-      return <Field key={name} component={SurveyField} type="text" label={label} name={name} />
-    })
+    return _.map(formFields, ({ label, name, icon }) => {
+      return <Field key={name} component={SurveyField} type="text" label={label} name={name} icon={icon} />
+    });
   }
 
   render() {
@@ -22,7 +22,7 @@ class SurveyForm extends Component {
       <div>
         {/* handleSubmit is given to us by the reduxForm connector at the bottom of
         this file */}
-        <form onSubmit={this.props.handleSubmit(this.props.onSurveySubmit)}>
+        <form onSubmit={this.props.handleSubmit(this.props.onSurveySubmit)} style={{ marginTop: '25px' }}>
           {this.renderFields()}
           <button type="submit" className="teal btn-flat right white-text">
             Next
