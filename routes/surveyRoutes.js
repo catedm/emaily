@@ -80,4 +80,13 @@ module.exports = (app) => {
 
     res.send(events);
   });
+
+  app.post('/api/surveys/delete', async (req, res) => {
+    const { surveyId } = req.body;
+    await Survey.findByIdAndDelete({_id: surveyId });
+    const surveys = await Survey.find({
+      _user: req.user._id
+    });
+    res.send(surveys);
+  }); 
 };

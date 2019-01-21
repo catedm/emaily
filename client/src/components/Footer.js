@@ -1,10 +1,10 @@
-import React from 'react'
+import React from 'react';
 
 const Footer = () => {
   return (
     <div>
-      <div class="footer-copyright" style={{ textAlign: 'center', paddingBottom: '20px' }}>
-        <div class="container">
+      <div className="footer-copyright" style={{ textAlign: 'center', paddingBottom: '20px' }}>
+        <div className="container">
           © 2019 Survey Wizard
         </div>
       </div>

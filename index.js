@@ -20,7 +20,7 @@ app.use(bodyParser.json());
 app.use(
 	cookieSession({
 		// this must be entered in milliseconds
-		// the following is equal to 30 days in milliseconds
+		// the following is equal to 30 days in millisecond s
 		maxAge: 30 * 24 * 60 * 60 * 1000,
 		// load in cookie encryption from keys file
 		keys: [keys.cookieKey]

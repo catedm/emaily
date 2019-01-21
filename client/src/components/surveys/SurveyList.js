@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchSurveys } from '../../actions';
+import { fetchSurveys, deleteSurvey } from '../../actions';
 
 class SurveyList extends Component {
   componentDidMount() {
@@ -18,8 +18,14 @@ class SurveyList extends Component {
             </p>
           </div>
           <div className="card-action blue-grey darken-2">
-            <a style={{color: "#fff" }}>Yes: {survey.yes}</a>
-            <a style={{color: "#fff" }}>No: {survey.no}</a>
+            <a style={{ color: "#fff" }}>Yes: {survey.yes}</a>
+            <a style={{ color: "#fff" }}>No: {survey.no}</a>
+            <i
+              style={{ cursor: 'pointer' }}
+              className="material-icons right white"
+              onClick={() => this.props.deleteSurvey(survey._id)}>
+              delete
+              </i>
           </div>
         </div>
       );
@@ -39,4 +45,4 @@ function mapStateToProps({ surveys }) {
   return { surveys };
 }
 
-export default connect(mapStateToProps, { fetchSurveys })(SurveyList);
+export default connect(mapStateToProps, { fetchSurveys, deleteSurvey })(SurveyList);
