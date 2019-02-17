@@ -15,6 +15,7 @@ export const handleToken = (token) => async (dispatch) => {
 export const submitSurvey = (values, history) => async (dispatch) => {
   const res = await axios.post('/api/surveys', values);
   // this is redirecting the user after successful survey submission
+  // we have access to 'history' because of withRouter (see SurveyFormReview.js)
   history.push('/surveys');
   dispatch({ type: FETCH_USER, payload: res.data });
 };
